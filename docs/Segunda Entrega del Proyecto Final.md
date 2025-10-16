@@ -203,4 +203,5 @@ scikit-learn / xgboost: clustering, regresión si se requiere.
 
 JupyterLab es ideal para exploración reproducible y notebooks narrativos.
 
+
 R / QGIS / ArcGIS también son opciones válidas, pero usando Python mantienes todo integrado en notebooks y scripts reproducibles (además de integrar fácilmente con pipelines).
