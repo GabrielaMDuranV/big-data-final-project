@@ -48,7 +48,7 @@ Desarrollar un análisis espacial basado en datos censales que permita identific
 - **Arquitectura:** módulo `src/model_opt.py` que genera escenarios de ubicación óptima.  
 - **Reproducibilidad:** parámetros configurables en `config.yaml` y registro de resultados versionados.
 
-### **3. Predictivo **
+### **3. Predictivo**
 - **Por qué:** Estimar demanda futura o crecimiento poblacional.  
 - **Herramientas:** `scikit-learn`, `xgboost`, `prophet`.  
 - **Arquitectura:** módulo `src/predict.py` para escenarios futuros (optimista, medio, pesimista).  
