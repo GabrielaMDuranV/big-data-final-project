@@ -19,7 +19,7 @@ La planificación educativa actual a menudo es lenta e inexacta frente a los cam
 
 ---
 
-## 📊 Metodología y Alcance
+## Metodología y Alcance
 El proyecto se centra en un enfoque **macro a nivel departamental**, evitando el análisis a nivel municipal o de coordenadas específicas.
 
 ### 1. Fuentes de Datos
