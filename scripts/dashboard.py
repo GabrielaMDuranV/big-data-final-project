@@ -1,5 +1,10 @@
 # streamlit_app.py
-
+"""
+Dashboard interactivo para 'ColegiosFinal.csv' (versión con estilo y colores mejorados + nuevas secciones)
+Autor: Gabby Duran (modificado)
+- Añadidas: Top3 departamentos (más estudiantes/escuela) por grupo de edad, Bottom3 por grupo de edad
+- Añadida: Simulación aproximada al 100% (multiplica por 10 los conteos del 10%)
+"""
 
 import streamlit as st
 import pandas as pd
@@ -17,16 +22,16 @@ PRINCIPAL_TOTAL = 10_027_254
 SAMPLE_10P = 1_002_725
 
 school_counts_raw = {
-    "El Alto (Municipio)": 524,
-    "La Paz (Departamento)": 4230,
-    "Cochabamba": 3700,
-    "Santa Cruz": 3400,
-    "Potosí": 1500,
-    "Chuquisaca": 1050,
-    "Oruro": 850,
-    "Tarija": 800,
-    "Beni": 700,
-    "Pando": 250
+    "El Alto (Municipio)": 1,
+    "La Paz (Departamento)": 799000,
+    "Cochabamba": 400000,
+    "Santa Cruz": 700000,
+    "Potosí": 200000,
+    "Chuquisaca": 100000,
+    "Oruro": 100000,
+    "Tarija": 1000000,
+    "Beni": 30000,
+    "Pando": 10000
 }
 
 la_paz_combined = school_counts_raw.get("La Paz (Departamento)", 0) + school_counts_raw.get("El Alto (Municipio)", 0)
@@ -124,7 +129,7 @@ def load_and_prepare(path="ColegiosFinal.csv"):
 
     return df
 
-# small helper: compute avg students per school by department 
+# small helper: compute avg students per school by department (optionally filtered by group)
 def compute_avg_students_per_school(df_counts, schools_map):
     df = df_counts.copy()
     df["schools"] = df["department"].map(schools_map).fillna(0).astype(int)
@@ -163,8 +168,8 @@ def simulate_100pct(df):
 # ----------------------
 # UI - Title / Load
 # ----------------------
-st.markdown("<h1 style='text-align:left; color:#073763; font-size:30px; margin-bottom:0.2rem;'>📊 Analisis de datos censales para poblacion en colegios", unsafe_allow_html=True)
-
+st.markdown("<h1 style='text-align:left; color:#073763; font-size:30px; margin-bottom:0.2rem;'>📊 Dashboard educativo — ColegiosFinal.csv</h1>", unsafe_allow_html=True)
+st.markdown("<p style='color:#334155; font-size:14px; margin-top:0; margin-bottom:1rem;'>Comparativas por departamento, sexo, edad y nivel educativo. <strong style='color:#0b5ed7'>La Paz</strong> y <strong style='color:#0b5ed7'>El Alto</strong> se muestran combinados.</p>", unsafe_allow_html=True)
 
 try:
     df = load_and_prepare("ColegiosFinal.csv")
@@ -415,4 +420,13 @@ fig_sex_dept = px.bar(sex_dept, x="department", y="pct", color="sexo", color_dis
 fig_sex_dept.update_layout(barmode="stack", xaxis_tickangle=-45, title=dict(x=0.5, font=dict(size=14, color="#073763")))
 st.plotly_chart(fig_sex_dept, use_container_width=True)
 
+st.markdown("---")
 
+st.markdown("<h2 style='color:#0b5ed7;'>Guía rápida de interpretación y notas</h2>", unsafe_allow_html=True)
+st.markdown("""
+<ul style='color:#334155; font-size:14px;'>
+<li><strong>Top3 / Bottom3 por edad</strong>: muestra dónde la carga por escuela es más alta o más baja para cada grupo etario.</li>
+<li><strong>Simulación 100%</strong>: multiplica por 10 los conteos del 10% para dar una aproximación de la escala real (no es exacta, es una estimación rápida).</li>
+<li><strong>Interpretación de promedios</strong>: un promedio alumnos/escuela más alto puede indicar sobrecarga; uno muy bajo, infrautilización (o menores registros en la muestra).</li>
+</ul>
+""", unsafe_allow_html=True)
