@@ -1,10 +1,4 @@
 # streamlit_app.py
-"""
-Dashboard interactivo para 'ColegiosFinal.csv' (versión con estilo y colores mejorados + nuevas secciones)
-Autor: Gabby Duran (modificado)
-- Añadidas: Top3 departamentos (más estudiantes/escuela) por grupo de edad, Bottom3 por grupo de edad
-- Añadida: Simulación aproximada al 100% (multiplica por 10 los conteos del 10%)
-"""
 
 import streamlit as st
 import pandas as pd
@@ -223,7 +217,7 @@ age_group_counts = df.groupby("grupo_edad").size().rename("students").reset_inde
 nivel_counts = df.groupby("nivel_educativo").size().rename("students").reset_index().sort_values("students", ascending=False)
 
 # ----------------------
-# Principal charts (unchanged styling)
+# Principal charts
 # ----------------------
 st.markdown("<h2 style='color:#0b5ed7; margin-top:0.3rem;'>Visión general y comparativas</h2>", unsafe_allow_html=True)
 col1, col2 = st.columns((2, 1))
@@ -430,3 +424,4 @@ st.markdown("""
 <li><strong>Interpretación de promedios</strong>: un promedio alumnos/escuela más alto puede indicar sobrecarga; uno muy bajo, infrautilización (o menores registros en la muestra).</li>
 </ul>
 """, unsafe_allow_html=True)
+
