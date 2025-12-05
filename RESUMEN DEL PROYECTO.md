@@ -1,16 +1,16 @@
-# 📝 Resumen General del Proyecto  
+# Resumen General del Proyecto  
 ## Análisis de Datos Censales para Centros Educativos en Bolivia
 
 El proyecto propone un modelo analítico basado en **Big Data** para optimizar la planificación de la infraestructura educativa en Bolivia a nivel estratégico.
 
 ---
 
-## 🎯 Objetivo Principal
+## Objetivo Principal
 Identificar, mediante un **índice de priorización departamental**, los nueve departamentos de Bolivia con la mayor necesidad de inversión para la construcción de nuevos centros educativos.
 
 ---
 
-## 💡 Problema Identificado
+## Problema Identificado
 La planificación educativa actual a menudo es lenta e inexacta frente a los cambios demográficos, lo que resulta en una distribución desequilibrada de la oferta educativa. Esto se manifiesta en:
 
 - Subutilización de recursos en departamentos donde la demanda ha decrecido.  
@@ -46,7 +46,7 @@ El flujo de trabajo es secuencial y reproducible, utilizando herramientas de có
 
 ---
 
-## 🔑 Hallazgos Esperados
+## Hallazgos Esperados
 Se espera que el análisis revele:
 
 - **Disparidades Interdepartamentales:** Ratios alumno/escuela significativamente más altos en departamentos urbanos de alta densidad (p. ej., La Paz, Cochabamba) o de alta dispersión (p. ej., Pando, Beni).  
@@ -55,7 +55,7 @@ Se espera que el análisis revele:
 
 ---
 
-## 🚧 Límites del Proyecto
+## Límites del Proyecto
 El principal límite es el **nivel de agregación departamental**, lo que impide identificar necesidades específicas a nivel municipal o de micro-localización de escuelas. Además, al no usar coordenadas, los indicadores de accesibilidad son **proxies** (densidad y ratio) y no miden distancias reales de viaje.
 
 
